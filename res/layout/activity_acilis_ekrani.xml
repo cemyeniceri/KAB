@@ -1,0 +1,252 @@
+<!-- Açılış Ekranı XML Dosyası -->
+<!-- 
+	Bu LinearLayout Tüm Sayfaya Ait Layouttur. 
+	
+	@android:layout_width="fill_parent" => Genişlik tüm sayfayı kapsıyacak hale getirilmiştir.
+	@android:layout_height="fill_parent" => Yükseklik tüm sayfayı kapsıyacak hale getirilmiştir.
+	@android:orientation="vertical" => Ekran dikey konumlandırılmıştır.
+	@android:background="@drawable/background" => Ekran Res\drawable-hdpi background image dosyası arka plan olarak ayarlanmıştır.
+	@android:id="@+id/layout" => Sayfa geçişleri için her bir sayfaya Id atanmıştır. (R.Java sınınfının içinde idler görülebilir)
+	@android:weightSum="18" => Sayfa dikey olarak 18 birime bölünmüştür. 18 birim ile sayfa kolay kullanılabilecek şekilde parçalanmıştır.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical"
+	android:background="@drawable/background"
+	android:id="@+id/layout" 
+	android:weightSum="18">	
+	
+	<!--
+		Bu LinearLayout sayfanın üst kısmında bulunan uygulamanın adını içeren layouttur.
+		
+		@android:layout_weight="5" => Ekranın dikey olarak bölünen 18 birimden 5 birimi bu layouta ayrılmıştır.
+		@android:layout_width="fill_parent" => Genişlik olarak ekranın tamamını kapsaması sağlanmıştır.
+		@android:layout_height="0dp" => Ekran dikey olarak bölünüp 5 birimlik yere atandığı için herhangi bir yükseklik değeri verilmemelidir(0dp).
+		@android:orientation="vertical" => Layout dikey konumlandırılmıştır
+		@android:gravity="center" => Layout içerisindeki diğer elemanlar (textview gibi) 
+	 -->
+	<LinearLayout 
+	    android:layout_weight="5"
+		android:layout_width="fill_parent"
+		android:layout_height="0dp"
+		android:orientation="vertical"
+		android:gravity="center">
+	
+	<!--
+		Bu TextView Yazılımın İsminin ilk kısmını içermektedir. 	
+			
+		@android:layout_width="wrap_content" => Genişliği verilen text boyutunu ekrana sığdırabilecek şekilde ayarlanmıştır.
+		@android:textSize="30sp" => Yazının Boyutu ayarlanmıştır (30sp - wordde punto ayarı gibi kullanılıyor)
+		@android:layout_height="wrap_content" => Yüksekliği verilen text boyutunu ekrana sığdırabilecek şekilde ayarlanmıştır.
+		@android:id="@+id/textView1" => Bu texte textView1 idsi verilmiştir.
+		@android:text="@string/Yazilim_ismi1"  => String Dosyası içerisinden içeriği çağırılmıştır.
+	-->	
+	<TextView
+		android:layout_width="wrap_content"
+		android:textSize="30sp"
+		android:layout_height="wrap_content"
+		android:id="@+id/textView1"
+		android:text="@string/Yazilim_ismi1"/>
+	
+	<!--
+		Bu TextView Yazılımın isminin ikinci kısmını içermektedir. 	
+			
+		@android:layout_width="wrap_content" => Genişliği verilen text boyutunu ekrana sığdırabilecek şekilde ayarlanmıştır.
+		@android:textSize="30sp" => Yazının Boyutu ayarlanmıştır (30sp - wordde punto ayarı gibi kullanılıyor)
+		@android:layout_height="wrap_content" => Yüksekliği verilen text boyutunu ekrana sığdırabilecek şekilde ayarlanmıştır.
+		@android:id="@+id/textView2" => Bu texte textView2 IDsi verilmiştir.
+		@android:text="@string/Yazilim_ismi2"  => String Dosyası içerisinden içeriği çağırılmıştır.
+	-->	
+	<TextView
+		android:textSize="30sp"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:id="@+id/textView2"
+		android:text="@string/Yazilim_ismi2"/>
+	</LinearLayout>
+	
+	<!--
+		Bu TextView Şirketin isim kısmını içermektedir. 
+		
+		@android:layout_weight="4" => diğer layoutlarda olduğu gibi ekranda kaplayacağı yer 4 birim olarak ayarlanmıştır.
+		@android:textSize="30sp" => Yazının Boyutu ayarlanmıştır (30sp - wordde punto ayarı gibi kullanılıyor)		
+		@android:layout_width="wrap_content" => Genişliği verilen text boyutunu ekrana sığdırabilecek şekilde ayarlanmıştır.
+		@android:layout_height="0dp" => Ekranda kaplaması gereken yer belirtildiğinden dolayı bir yükseklik verilmesine gerek yoktur.
+		@android:layout_gravity="center" => Ekranda kapladığı yerde yazının ortalanması sağlanmıştır.
+		@android:id="@+id/textView3" => Bu texte textView3 idsi verilmiştir.
+		@android:text="@string/Firma_İsmi"  => String Dosyası içerisinden içeriği çağırılmıştır.
+		@android:paddingBottom="30dp" => Kapladığı yer içerisinde 30dp aşağı kaydırılarak görsellik düzgünleştirilmiştir.
+	-->	
+	<TextView
+	    android:layout_weight="4"
+		android:textSize="30sp"
+		android:layout_width="wrap_content"
+		android:layout_height="0dp"
+		android:layout_gravity="center"
+		android:id="@+id/textView3"
+		android:text="@string/Firma_ismi"
+		android:paddingBottom="30dp"/>
+	
+	<!-- 
+		Bu Layout kenarları çizgili olan Seçim Panelini yazısının oluşturulduğu kısımdır.
+		Android yazılımı içerisinde grup yapan herhangi bir öğe bulunmadığından bu şekilde görsellik kazandırılmıştır.
+		
+		@android:layout_weight="3" => Layoutun ekranda kaplayacağı yer, 18 birimlik alanda 3 birim olarak ayarlanmıştır.
+		@android:layout_width="fill_parent" => genişlik olarak ekranı kaplaması sağlanmıştır.
+		@android:layout_height="wrap_content" => Yükseklik olarak içeriğin sığdırılması sağlanmıştır.
+		@android:gravity="bottom" => Verilen yer içerisinde eklenen görsellerin en altta olması sağlanmıştır.
+		@android:orientation="horizontal" => Bu layout yatay konumlandırılarak eklenen görsellerin yan yana dizilmesi sağlanmıştır.
+	 -->
+	<LinearLayout
+	    android:layout_weight="3"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:gravity="bottom"
+		android:orientation="horizontal" >
+		
+	    <!--
+	    	Bu TextView Seçim Paneli yazısının başına çizginin çekildiği kısımdır.
+	    	
+	    	@android:layout_weight="0.20" => Layout içerisinde kısım içerisinde yatayda 0.2 birimlik yer kaplaması sağlanmıştır.
+		    @android:layout_width="wrap_content" => 0.2 birim içerisine yatayda sığması için yatay boyutu wrap_content olarak ayarlanmıştır.
+		    @android:layout_height="2dp" => ince bir çizgi elde edebilmek için yüksekliği 2dp olarak ayarlanmıştır.
+		    @android:background="#DADADA" => arka plana renk verilerek çizginin oluşması sağlanmıştır. (Renklerin kodlarına android.developer sayfasından ulaşılabilir)
+	     -->
+		<TextView
+		    android:layout_weight="0.20"
+		    android:layout_width="wrap_content"
+		    android:layout_height="2dp"
+		    android:background="#DADADA" />
+		
+		<!--
+			Bu TextView Seçim Paneli yazısının ekran üzerinde ayarlanarak gösterildiği kısımdır.
+			
+			@android:layout_weight="0.10" => Layout içerisinde 0.1 birim yer kaplaması ayarlanmıştır.
+		    @android:id="@+id/textView4" => TextView4 IDsi verilmiştir.
+		    @android:layout_width="wrap_content" => Genişliğinin bulunduğu yere sığması sağlanmıştır.
+		    @android:layout_height="wrap_content" => Yüksekliğinin bulunduğu yere sığması sağlanmıştır.
+		    @android:gravity="center_horizontal" => Bulunduğu Layout içeirisinde yatayda ortalanması sağlanmıştır. 
+		    @android:paddingLeft="2dp" => Solundaki çizgi ile birleşmemesi için solundan 2dp boşluk bırakılmıştır.
+		    @android:paddingRight="2dp" => Sağındaki çizgi ile birleşmemesi sağından 2dp boşluk bırakılmıştır.
+		    @android:text="@string/SecimPaneli" => String dosyası içerisinden yazıya ait içerik çağırılarak ekranda gösterilmiştir.
+		    @android:textSize="30sp" => Yazının boyutu ayarlanmıştır. 
+		 -->
+		<TextView
+		    android:layout_weight="0.10"
+		    android:id="@+id/textView4"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:gravity="center_horizontal"
+		    android:paddingLeft="2dp"
+		    android:paddingRight="2dp"
+		    android:text="@string/SecimPaneli"
+		    android:textSize="30sp" />
+		
+		<!--
+	    	Bu TextView Seçim Paneli yazsından sonra çizginin çekildiği kısımdır.
+	    	
+	    	@android:layout_weight="0.70" => Ayrılan kısım içerisinde yatayda 0.7 birimlik yer kaplaması sağlanmıştır.
+		    @android:layout_width="wrap_content" => 0.7 birim içerisine yatayda sığması için yatay boyutu wrap_content olarak ayarlanmıştır.
+		    @android:layout_height="2dp" => ince bir çizgi elde edebilmek için yüksekliği 2dp olarak ayarlanmıştır.
+		    @android:background="#DADADA" => arka plana renk verilerek çizginin oluşması sağlanmıştır. (Renklerin kodlarına android.developer sayfasından ulaşılabilir)
+	     -->
+		<TextView
+		    android:layout_weight="0.70"
+		    android:layout_width="wrap_content"
+		    android:layout_height="2dp"
+		    android:background="#DADADA" />
+	</LinearLayout>
+	   
+	<!--
+		Bu LinearLayout butonların ekrana yerleştirildiği layouttur.
+		
+		@android:layout_weight="3" => Layout 18 birim içerisinde ekranda 3 birim yer kaplayacak şekilde ayarlanmıştır.
+		@android:layout_width="fill_parent" => Genişliği doldurmak için ayarlanmış ve böylece yatayda ekranı doldurması sağlanmıştır.
+		@android:layout_height="wrap_content" =>  Yüksekliği verilen alana sığması için wrap_content olarak ayarlanmıştır.
+		@android:orientation="horizontal" => Bu layout yatay konumlandırılarak eklenen görsellerin yan yana dizilmesi sağlanmıştır.
+		@android:gravity="center" => Eklenecek olan ögelerin Layout içerisinde ortalanması sağlanmıştır.
+		@android:paddingTop="10dp" => üstten 10dp boşluk bırakılarak yazılar ile temas etmemesi sağlanmıştır.
+		@android:paddingBottom="10dp" => Alttan 10dp boşluk bırakılarak alt kısım ile temas etmemesi sağlanmıştır.
+	 -->
+	<LinearLayout
+	    android:layout_weight="3"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:gravity="center"
+		android:paddingTop="10dp"
+		android:paddingBottom="10dp">
+		
+	<!--
+		Yönetici Butonunun Eklendiği Kısımdır.
+		
+		@android:id="@+id/butonYonetici" => Yönetici butonuna butonYonetici IDsi verilmiştir.
+		@android:text="@string/ButtonYonetici" => Butonun üzerindeki text string dosyası içerisinden ButtonYonetici adı ile çağrılmıştır.
+		@android:onClick="onYonetici" => Butona tıklandığında yapılacak olan fonksiyona verilen addır. (Java kodu içerisinde fonskiyonun içi doldurulur.)
+		@android:drawableLeft="@drawable/yonetici" => Butonun sol kısmına yonetici.png görseli yerleştirilmiştir.
+		@android:layout_width="200dp" => Butonun genişliği 200dp olarak ayarlanmıştır.
+		@android:layout_height="75dp" => Butonun yüksekliği 75dp olarak ayarlanmıştır.
+		@android:layout_marginRight="30dp" Butonların dip dibe olmaması için sağdan 30dp boşluk bırakılmıştır.
+	 -->
+	<Button 
+		android:id="@+id/butonYonetici"
+		android:text="@string/ButtonYonetici"
+		android:onClick="onYonetici"
+		android:drawableLeft="@drawable/yonetici"
+		android:layout_width="200dp"
+		android:layout_height="75dp"
+		android:layout_marginRight="30dp"/>
+	
+	<!--
+		Surus Destek Butonunun Eklendiği Kısımdır.
+		
+		@android:id="@+id/butonSurusDestek" => Sürüs Destek butonuna butonSurusDestek IDsi verilmiştir.
+		@android:text="@string/ButtonYonetici" => Butonun üzerindeki text string dosyası içerisinden ButtonYonetici adı ile çağrılmıştır.
+		@android:onClick="onKullanici" => Butona tıklandığında yapılacak olan fonksiyona verilen addır. (Java kodu içerisinde fonskiyonun içi doldurulur.)
+		@android:drawableLeft="@drawable/destekekrani" => Butonun sol kısmına destekekrani.png görseli yerleştirilmiştir.
+		@android:layout_width="200dp" => Butonun genişliği 200dp olarak ayarlanmıştır.
+		@android:layout_height="75dp" => Butonun yüksekliği 75dp olarak ayarlanmıştır.
+		@android:layout_marginRight="30dp" Butonların dip dibe olmaması için sağdan 30dp boşluk bırakılmıştır.
+	 -->
+	<Button 
+		android:id="@+id/butonSurusDestek"
+		android:text="@string/ButtonSurusDestek"
+		android:onClick="onKullanici"
+		android:layout_width="200dp"
+		android:layout_height="75dp"
+		android:drawableLeft="@drawable/destekekrani"
+		android:layout_marginLeft="30dp"/>
+	</LinearLayout>	
+	
+	<!--
+		Bu LinearLayout Son Kısımda Bulunan çizginin çekildiği kısımdır.
+		
+		@android:layout_weight="3" => Layout için 18 birimlik ekranda kalan son 3 birim yer ayrılmıştır.
+	    @android:orientation="vertical" => Layout Dikey olarak konumlandırılmıştır.
+		@android:layout_width="fill_parent" => Genişlik olarak kalan alanı kaplaması sağlanmıştır.
+		@android:layout_height="wrap_content" => Yükseklik olarak kalan yere sığması sağlanmıştır.
+	 -->
+	<LinearLayout 
+	    android:layout_weight="3" 
+	    android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+	
+	    <!--
+	    	Bu textView Son Çizginin çekildiği kısımdır.
+	    	
+	    	@android:layout_height="2dp" => yüksekliği 2 birim olarak ayarlanmıştır.
+		    @android:gravity="top" => Bulunduğu layout içerisinde en tepede bulunması sağlanmıştır.
+		    @android:layout_width="fill_parent" => Ekranı genişlik olarak boydan boya kapalası sağlanmıştır.
+	      	@android:background="#DADADA" => Arka planına renk verilerek görünmesi sağlanmıştır.
+	     -->
+		<TextView 
+		    android:layout_height="2dp"
+		    android:gravity="top"
+		    android:layout_width="fill_parent"      
+	      	android:background="#DADADA" />
+	</LinearLayout>
+</LinearLayout>

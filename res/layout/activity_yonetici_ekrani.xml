@@ -1,0 +1,2133 @@
+<!-- Yönetici Ekranı XML Dosyası -->
+
+<!-- 
+	Bu LinearLayout Tüm Sayfaya Ait Layouttur. 
+	
+	@android:layout_width="fill_parent" => Genişlik tüm sayfayı kapsıyacak hale getirilmiştir.
+	@android:layout_height="fill_parent" => Yükseklik tüm sayfayı kapsıyacak hale getirilmiştir.
+	@android:background="@drawable/background" => Ekran Res\drawable-hdpi background image dosyası arka plan olarak ayarlanmıştır.
+	@android:orientation="vertical" => Ekran dikey konumlandırılmıştır
+	@android:weightSum="18" => Sayfa dikey olarak 18 birime bölünmüştür. 18 birim ile sayfa kolay kullanılabilecek şekilde parçalanmıştır.
+	@tools:context=".AdminEkrani" => Ekrana isim verilerek geçiş yapabilme olanağı sağlanmıştır.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    tools:context=".AdminEkrani" >
+
+    <!--
+    	Tabı ve Sağında yer alan buton ve radyobutonlari içeren layouttur.
+    	
+    	@android:layout_width="fill_parent" => Kendine ayrılan yeri genişlik olarak kaplaması sağlanmıştır.
+	    @android:layout_height="fill_parent" =>  Kendine ayrılan yeri yükseklik olarak kaplaması sağlanmıştır.
+	    @android:layout_weight="3" => kendisine ekran içerisinde 3 birim yer ayrılmıştır.
+	    @android:layout_marginTop="5dp" => Ekranın yukarısı ile yapışmaması için üstten 5dp lik boşluk bıraklımıştır.
+	    @android:orientation="horizontal" => Layout yatay olarak konumlandırılmıştır. Bu sayede Tablar ve butonlar yanyana dizilmiştir.
+     -->
+	<LinearLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:layout_weight="3"
+	    android:layout_marginTop="5dp"
+	    android:orientation="horizontal">
+	    
+	    <!--
+	    	TabHost Tab ve Taba ait öğelerin eklendiği kısımdır.
+	    	
+	    	@android:id="@android:id/tabhost" => tabın bütününe ait tabhost IDsi verilmiştir.
+	        @android:layout_width="fill_parent" => Tab için ayrılan alanın genişlik olarak bütünün tab tarafından doldurulması sağlanmıştır.
+	        @android:layout_height="fill_parent" => Tab için ayrılan alanın yükseklik olarak bütününü tab tarafından doldurulması sağlanmıştır.
+	        @android:layout_weight="1" => Bulunduğu Layout içeirisinde Taba 1 birimlik yer ayrılmıştır.
+	        @android:layout_marginLeft="2dp" => Soldan 2dp boşluk bırakılarak ekranın soluna yapışmaması sağlanmıştır.
+	     -->
+	    <TabHost
+	        android:id="@android:id/tabhost"
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        android:layout_weight="1"
+	        android:layout_marginLeft="2dp">
+	        
+	        <!--
+	        	Tab öğelerinin tümünü kapsayacak bu Layout gerekmektedir. 
+	        	
+	        	@android:layout_width="fill_parent" => Tab için ayrılan alanın tümü genişlik olarak doldurulmuştur.
+	            @android:layout_height="fill_parent" => Tab için ayrılan alanın tümü yükseklik olarak doldurulmuştur.
+	            @android:orientation="vertical" => Taba ait öğelerin dikey olarak konumlandırılması sağlanmıştır.
+	         -->
+	        <LinearLayout
+	            android:layout_width="fill_parent"
+	            android:layout_height="fill_parent"
+	            android:orientation="vertical" >
+	            
+	            <!--
+	            	Tab alanının tepesinde bulunan ve tıklanınca geçişi sağlayan alana ait araçtır.
+	            	
+	            	@android:id="@android:id/tabs" => tabs IDsi bu kısım için verilmiştir.
+	                @android:layout_width="fill_parent" => genişlik olarak taba ayrılan kısımın doldurulması sağlanmıştır
+	                @android:layout_height="54dp" Yükseklik olarak 54dp verilerek Taba ayrılan alanda belirli bir dikey yer kaplaması sağlanmıştır.
+	                @android:gravity="bottom" => Tab butonlarına ait yazıların bu kısımda en altta olması sağlanmıştır.
+	             -->
+	            <TabWidget
+	                android:id="@android:id/tabs"
+	                android:layout_width="fill_parent"
+	                android:layout_height="54dp"
+	                android:gravity="bottom" >
+	            </TabWidget>
+				
+	            <!-- 
+	            	Bu kısım tabların altında yer alan kısımların doldurulması için ayrılan FrameLayouttur.
+	            	
+	            	@android:id="@android:id/tabcontent" => Bütün tablara ait içeriğe tabcontent IDsi verilmiştir.
+	                @android:layout_width="fill_parent" => Tabların içeriklerinin bulunduğu kısım Yukarıda verilen LinearLayout içerisinde kalan kısıma yatayda doldurulmuştur.
+	                @android:layout_height="fill_parent" => Tabların içeriklerinin bulunduğu kısım Yukarıda verilen LinearLayout içerisinde kalan kısıma dikeyde doldurulmuştur.
+	             -->
+	            <FrameLayout
+	                android:id="@android:id/tabcontent"
+	                android:layout_width="fill_parent"
+	                android:layout_height="fill_parent" >
+	                
+	                <!--
+	                	Tab1'e ScrollView verilerek daha fazla içeriğin alan içerisinde aşağıya doğru bir Scroll yardımı ile yerleştirilmesinin sağlandığı alandır.
+	                 	
+	                 	@android:id="@+id/tab1" => Tab1 için id verilerek Java kodu üzerinden düzenlebilmesine imkan sağlanmıştır.
+	                    @android:layout_width="fill_parent" => Tab1 e ait kısmın yatayda alana yayılması sağlanmıştır.
+	                    @android:layout_height="wrap_content" => Tab1 e ait ögelerin her birinin yüksekliğinin boyutu kadar olması sağlanmıştır.
+	                 -->
+	                <ScrollView
+	                    android:id="@+id/tab1"
+	                    android:layout_width="fill_parent"
+	                    android:layout_height="wrap_content">
+	                    
+	                    <!--
+	                    	Tab1 e ait Parametlerin yer aldığı LinearLayouttur.
+	                    	ScrollViewin içeirisinde yer aldığında dolayı çok daha fazla öğe eklenebilir.
+	                    	
+	                    	@android:layout_width="fill_parent" => Layoutun genişlik olarak verilen alanın tamamamını kaplaması sağlanmıştır.
+	                    	@android:layout_height="wrap_content" => Layoutun genişlik olarak verilen alana sığdırılması sağlanmıştır..
+	                    	@android:orientation="vertical" => Layout dikey olarak konumlandırılmıştır. Bu sebeple içerisine dizilecek öğeler alt alta yarleşecektir.
+	                     -->
+	                    <LinearLayout 
+	                        android:layout_width="fill_parent"
+	                    	android:layout_height="wrap_content"
+	                    	android:orientation="vertical">
+	                    	
+	                        <!--
+	                        	Tab1'e ait başlığı içeren TextViewdir. 
+	                        	 
+	                        	@android:layout_gravity="center_horizontal" => Yazılan textin yatay olarak ortalanması sağlanmıştır.
+	                    		@android:layout_width="wrap_content" => Yazının genişliğinin kendisi kadar yer kaplaması sağlanmıştır.
+	                    		@android:layout_height="wrap_content" => Yazının yüksekliğinin kendisi kadar yer kaplaması sağlanmıştır.
+	                    		@android:text="@string/PARAMETRELERDinamikveKinematik" => String dosyası içerisinden başlığa ait text çağrılmıştır.
+	                    		@android:textSize="20sp" => Yazının boyutu 20sp olarak ayarlanmıştır.
+	                    		@android:textStyle="bold" => Text stili bold olarak ayarlanmıştır.
+	                    		@android:textColor="@android:color/black" => Text rengi siyah olarak ayarlanmıştır.
+	                         -->
+	                    	<TextView 
+	                    	    android:layout_gravity="center_horizontal"
+	                    		android:layout_width="wrap_content"
+	                    		android:layout_height="wrap_content"
+	                    		android:text="@string/PARAMETRELERDinamikveKinematik"
+	                    		android:textSize="20sp"
+	                    		android:textStyle="bold"
+	                    		android:textColor="@android:color/black"/>
+	                    	
+	                    	<!-- 
+	                    		Dinamik parametrelere ait başlık ve çizgileri içeren Layouttur.
+	                    		
+	                    		@android:layout_width="fill_parent" => Layoutun içeriği kendisine ait alanı yatayda dolduracak şekilde konumlandırımlıştır.
+	                    		@android:layout_height="30dp" => Layoutun yüksekliği 30dp olarak ayarlanmıştır.
+	                    		@android:orientation="horizontal" => Çizgilerin ve başlığın yanyana olması için Layoutun içi yatay olarak konumlandırılmıştır.
+	                    	 -->
+	                    	<LinearLayout 
+	                    	    android:layout_width="fill_parent"
+	                    		android:layout_height="30dp"
+	                    		android:orientation="horizontal">
+	                    		<TextView
+									android:layout_width="40dp"
+									android:layout_height="1dp"
+									android:background="#00FFFF"
+									android:layout_gravity="center"/>      	
+		                    	<TextView 
+		                    	    android:layout_gravity="center"
+		                    	    android:textColor="@android:color/black"
+		                    	    android:layout_marginLeft="5dp"
+		                    	    android:layout_marginRight="6dp"
+		                    		android:layout_width="wrap_content"
+		                    		android:layout_height="wrap_content"
+		                    		android:text="@string/ParametrelerDinamik"
+		                    		android:textStyle="bold"
+		                    		android:textSize="20sp"/>
+		                    	<TextView
+									android:layout_width="fill_parent"
+									android:layout_height="1dp"
+									android:background="#00FFFF"
+									android:layout_gravity="center"
+									/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreDinamikKutle"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreDinamikKutle"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreDinamikAgirlikMerkezi"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreDinamikAgirlikMerkezi"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreDinamikEylemsizlikMomenti"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreDinamikEylemsizlikMomenti"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreDinamikSurucuAgirligi"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreDinamikSurucuAgirligi"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreDinamikSurtunmeKatSayisi"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreDinamikSurtunmeKatSayisi"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreDinamikIkiTekerEksenMerkezi"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreDinamikIkiTekerEksenMerkezi"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreDinamikKutleMerkezi"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreDinamikKutleMerkezi"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreDinamikTmKmArasiMesafe"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreDinamikTmKmArasiMesafe"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreDinamikArkaTekerlerArasiMesafe"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreDinamikArkaTekerlerArasiMesafe"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreDinamikOnTekerlerArasiMesafe"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreDinamikOnTekerlerArasiMesafe"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreDinamikOnArkaTekerlerArasiMesafe"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreDinamikOnArkaTekerlerArasiMesafe"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreDinamikArkaTekerYaricapi"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreDinamikArkaTekerYaricapi"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreDinamikTekerMotorSistemiEylemsizligi"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreDinamikTekerMotorSistemiEylemsizligi"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreDinamikNominalAci"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreDinamikNominalAci"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreDinamikViskoziteSurtunmeKatsayisi"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreDinamikViskoziteSurtunmeKatsayisi"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	
+	                    	<!-- 
+	                    		Kinematik parametrelere ait başlık ve çizgileri içeren Layouttur.
+	                    		
+	                    		@android:layout_width="fill_parent" => Layoutun içeriği kendisine ait alanı yatayda dolduracak şekilde konumlandırımlıştır.
+	                    		@android:layout_height="30dp" => Layoutun yüksekliği 30dp olarak ayarlanmıştır.
+	                    		@android:orientation="horizontal" => Çizgilerin ve başlığın yanyana olması için Layoutun içi yatay olarak konumlandırılmıştır.
+	                    	 -->
+	                    	<LinearLayout 
+	                    	    android:layout_width="fill_parent"
+	                    		android:layout_height="30dp"
+	                    		android:orientation="horizontal">
+	                    		<TextView
+									android:layout_width="40dp"
+									android:layout_height="1dp"
+									android:background="#00FFFF"
+									android:layout_gravity="center"/>      	
+		                    	<TextView 
+		                    	    android:layout_gravity="center"
+		                    	    android:textColor="@android:color/black"
+		                    	    android:layout_marginLeft="5dp"
+		                    	    android:layout_marginRight="6dp"
+		                    		android:layout_width="wrap_content"
+		                    		android:layout_height="wrap_content"
+		                    		android:text="@string/ParametrelerKinematik"
+		                    		android:textStyle="bold"
+		                    		android:textSize="20sp"/>
+		                    	<TextView
+									android:layout_width="fill_parent"
+									android:layout_height="1dp"
+									android:background="#00FFFF"
+									android:layout_gravity="center"
+									/>
+		                    </LinearLayout>
+		                    
+	                    	<!-- 
+	                    		Motor parametrelerine ait başlık ve çizgileri içeren Layouttur.
+	                    		
+	                    		@android:layout_width="fill_parent" => Layoutun içeriği kendisine ait alanı yatayda dolduracak şekilde konumlandırımlıştır.
+	                    		@android:layout_height="30dp" => Layoutun yüksekliği 30dp olarak ayarlanmıştır.
+	                    		@android:orientation="horizontal" => Çizgilerin ve başlığın yanyana olması için Layoutun içi yatay olarak konumlandırılmıştır.
+	                    	 -->
+	         				<LinearLayout 
+	                    	    android:layout_width="fill_parent"
+	                    		android:layout_height="30dp"
+	                    		android:orientation="horizontal">
+	                    		<TextView
+									android:layout_width="30dp"
+									android:layout_height="1dp"
+									android:background="#00FFFF"
+									android:layout_gravity="center"/>      	
+		                    	<TextView 
+		                    	    android:layout_gravity="center"
+		                    	    android:textColor="@android:color/black"
+		                    	    android:layout_marginLeft="5dp"
+		                    	    android:layout_marginRight="6dp"
+		                    		android:layout_width="wrap_content"
+		                    		android:layout_height="wrap_content"
+		                    		android:text="@string/ParametrelerMotor"
+		                    		android:textStyle="bold"
+		                    		android:textSize="19sp"/>
+		                    	<TextView
+									android:layout_width="fill_parent"
+									android:layout_height="1dp"
+									android:background="#00FFFF"
+									android:layout_gravity="center"
+									/>
+		                    </LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreMotorIcDirenci"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreMotorIcDirenci"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreMotorInduktansi"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreMotorInduktansi"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreMotorSurucuKazanci"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreMotorSurucuKazanci"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreMotorMaksimumGerilimi"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreMotorMaksimumGerilimi"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreMotorElektrikRezistansi"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreMotorElektrikRezistansi"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreMotorTorkSabiti"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreMotorTorkSabiti"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreMotorDogrusalArzuEdilenHiz"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreMotorDogrusalArzuEdilenHiz"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreMotorAcisalArzuEdilenHiz"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreMotorAcisalArzuEdilenHiz"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreMotorVitesOrani"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreMotorVitesOrani"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	
+	                    	<!-- 
+	                    		Araç parametrelere ait başlık ve çizgileri içeren Layouttur.
+	                    		
+	                    		@android:layout_width="fill_parent" => Layoutun içeriği kendisine ait alanı yatayda dolduracak şekilde konumlandırımlıştır.
+	                    		@android:layout_height="30dp" => Layoutun yüksekliği 30dp olarak ayarlanmıştır.
+	                    		@android:orientation="horizontal" => Çizgilerin ve başlığın yanyana olması için Layoutun içi yatay olarak konumlandırılmıştır.
+	                    	 -->
+	                    	<LinearLayout 
+	                    	    android:layout_width="fill_parent"
+	                    		android:layout_height="30dp"
+	                    		android:orientation="horizontal">
+	                    		<TextView
+									android:layout_width="30dp"
+									android:layout_height="1dp"
+									android:background="#00FFFF"
+									android:layout_gravity="center"/>      	
+		                    	<TextView 
+		                    	    android:layout_gravity="center"
+		                    	    android:textColor="@android:color/black"
+		                    	    android:layout_marginLeft="5dp"
+		                    	    android:layout_marginRight="6dp"
+		                    		android:layout_width="wrap_content"
+		                    		android:layout_height="wrap_content"
+		                    		android:text="@string/ParametrelerArac"
+		                    		android:textStyle="bold"
+		                    		android:textSize="19sp"/>
+		                    	<TextView
+									android:layout_width="fill_parent"
+									android:layout_height="1dp"
+									android:background="#00FFFF"
+									android:layout_gravity="center"
+									/>
+		                    </LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreAracTekerSayisi"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreAracTekerSayisi"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreAracSurusTipi"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreAracSurusTipi"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreAracAksUzunlugu"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreAracAksUzunlugu"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreAracTekerinDogrusalHizi"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreAracTekerinDogrusalHizi"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreAracTekerinAcisalHizi"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreAracTekerinAcisalHizi"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreAracKutleMerkezindeAcisalHiz"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreAracKutleMerkezindeAcisalHiz"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreAracKutleMerkezindeTork"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreAracKutleMerkezindeTork"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreAracSagTekerdeOlusanTork"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreAracSagTekerdeOlusanTork"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreAracSolTekerdeOlusanTork"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreAracSolTekerdeOlusanTork"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreAracGirisVoltajlariMotorlarin"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreAracGirisVoltajlariMotorlarin"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreAracElektromotiveKuvvetSabiti"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreAracElektromotiveKuvvetSabiti"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<TextView
+									android:layout_width="fill_parent"
+									android:layout_height="1dp"
+									android:background="#00FFFF"
+									android:layout_gravity="center"/> 
+	                	</LinearLayout>
+	                </ScrollView>
+	                
+	                <!--
+	                	Tab2'ye ScrollView verilerek daha fazla içeriğin alan içerisinde aşağıya doğru bir Scroll yardımı ile yerleştirilmesinin sağlandığı alandır.
+	                 	
+	                 	@android:id="@+id/tab2" => Tab2 için id verilerek Java kodu üzerinden düzenlebilmesine imkan sağlanmıştır.
+	                    @android:layout_width="fill_parent" => Tab2 e ait kısmın yatayda alana yayılması sağlanmıştır.
+	                    @android:layout_height="wrap_content" => Tab2 e ait ögelerin her birinin yüksekliğinin boyutu kadar olması sağlanmıştır.
+	                 -->
+	                <ScrollView
+	                    android:id="@+id/tab2"
+	                    android:layout_width="fill_parent"
+	                    android:layout_height="wrap_content">
+	                    
+	                    <!--
+	                    	Tab2 ye ait Parametlerin yer aldığı LinearLayouttur.
+	                    	ScrollViewin içeirisinde yer aldığında dolayı çok daha fazla öğe eklenebilir.
+	                    	
+	                    	@android:layout_width="fill_parent" => Layoutun genişlik olarak verilen alanın tamamamını kaplaması sağlanmıştır.
+	                    	@android:layout_height="wrap_content" => Layoutun genişlik olarak verilen alana sığdırılması sağlanmıştır..
+	                    	@android:orientation="vertical" => Layout dikey olarak konumlandırılmıştır. Bu sebeple içerisine dizilecek öğeler alt alta yarleşecektir.
+	                     -->
+	                    <LinearLayout 
+	                        android:layout_width="fill_parent"
+	                    	android:layout_height="wrap_content"
+	                    	android:orientation="vertical">
+	                    	
+	                         <!--
+	                        	Tab2'e ait başlığı içeren TextViewdir. 
+	                        	 
+	                        	@android:layout_gravity="center_horizontal" => Yazılan textin yatay olarak ortalanması sağlanmıştır.
+	                    		@android:layout_width="wrap_content" => Yazının genişliğinin kendisi kadar yer kaplaması sağlanmıştır.
+	                    		@android:layout_height="wrap_content" => Yazının yüksekliğinin kendisi kadar yer kaplaması sağlanmıştır.
+	                    		@android:text="@string/PARAMETRELERDenetleyiciTipveParametreler" => String dosyası içerisinden başlığa ait text çağrılmıştır.
+	                    		@android:textSize="20sp" => Yazının boyutu 20sp olarak ayarlanmıştır.
+	                    		@android:textStyle="bold" => Text stili bold olarak ayarlanmıştır.
+	                    		@android:textColor="@android:color/black" => Text rengi siyah olarak ayarlanmıştır.
+	                         -->
+	                    	<TextView
+	                    	    android:layout_gravity="center_horizontal"
+	                    		android:layout_width="wrap_content"
+	                    		android:layout_height="wrap_content"
+	                    		android:text="@string/PARAMETRELERDenetleyiciTipveParametreler"
+	                    		android:textSize="20sp"
+	                    		android:textStyle="bold"
+	                    		android:textColor="@android:color/black"/>
+	                    	
+	                    	<!-- 
+	                    		Açısal Denetleyici parametrelere ait başlık ve çizgileri içeren Layouttur.
+	                    		
+	                    		@android:layout_width="fill_parent" => Layoutun içeriği kendisine ait alanı yatayda dolduracak şekilde konumlandırımlıştır.
+	                    		@android:layout_height="30dp" => Layoutun yüksekliği 30dp olarak ayarlanmıştır.
+	                    		@android:orientation="horizontal" => Çizgilerin ve başlığın yanyana olması için Layoutun içi yatay olarak konumlandırılmıştır.
+	                    	 -->
+	                    	<LinearLayout 
+	                    	    android:layout_width="fill_parent"
+	                    		android:layout_height="30dp"
+	                    		android:orientation="horizontal">
+	                    		<TextView
+									android:layout_width="30dp"
+									android:layout_height="1dp"
+									android:background="#00FFFF"
+									android:layout_gravity="center"/>      	
+		                    	<TextView 
+		                    	    android:layout_gravity="center"
+		                    	    android:textColor="@android:color/black"
+		                    	    android:layout_marginLeft="5dp"
+		                    	    android:layout_marginRight="6dp"
+		                    		android:layout_width="wrap_content"
+		                    		android:layout_height="wrap_content"
+		                    		android:text="@string/ParametrelerAcisalDenetleyici"
+		                    		android:textStyle="bold"
+		                    		android:textSize="19sp"/>
+		                    	<TextView
+									android:layout_width="fill_parent"
+									android:layout_height="1dp"
+									android:background="#00FFFF"
+									android:layout_gravity="center"
+									/>
+		                    </LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreAcisalDenetleyiciKp1"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreAcisalDenetleyiciKp1"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreAcisalDenetleyiciKi1"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreAcisalDenetleyiciKi1"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreAcisalDenetleyiciKd1"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreAcisalDenetleyiciKd1"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreAcisalDenetleyiciKp2"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreAcisalDenetleyiciKp2"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreAcisalDenetleyiciKi2"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreAcisalDenetleyiciKi2"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreAcisalDenetleyiciKd2"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreAcisalDenetleyiciKd2"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	
+	                    	<!-- 
+	                    		Doğrusal Denetleyici parametrelere ait başlık ve çizgileri içeren Layouttur.
+	                    		
+	                    		@android:layout_width="fill_parent" => Layoutun içeriği kendisine ait alanı yatayda dolduracak şekilde konumlandırımlıştır.
+	                    		@android:layout_height="30dp" => Layoutun yüksekliği 30dp olarak ayarlanmıştır.
+	                    		@android:orientation="horizontal" => Çizgilerin ve başlığın yanyana olması için Layoutun içi yatay olarak konumlandırılmıştır.
+	                    	 -->
+	                    	<LinearLayout 
+	                    	    android:layout_width="fill_parent"
+	                    		android:layout_height="30dp"
+	                    		android:orientation="horizontal">
+	                    		<TextView
+									android:layout_width="30dp"
+									android:layout_height="1dp"
+									android:background="#00FFFF"
+									android:layout_gravity="center"/>      	
+		                    	<TextView 
+		                    	    android:layout_gravity="center"
+		                    	    android:textColor="@android:color/black"
+		                    	    android:layout_marginLeft="5dp"
+		                    	    android:layout_marginRight="6dp"
+		                    		android:layout_width="wrap_content"
+		                    		android:layout_height="wrap_content"
+		                    		android:text="@string/ParametrelerDogrusalDenetleyiciParametreler"
+		                    		android:textStyle="bold"
+		                    		android:textSize="19sp"/>
+		                    	<TextView
+									android:layout_width="fill_parent"
+									android:layout_height="1dp"
+									android:background="#00FFFF"
+									android:layout_gravity="center"
+									/>
+		                    </LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreDogrusalDenetleyiciKp1"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreDogrusalDenetleyiciKp1"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreDogrusalDenetleyiciKi1"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreDogrusalDenetleyiciKi1"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreDogrusalDenetleyiciKd1"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreDogrusalDenetleyiciKd1"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreDogrusalDenetleyiciKp2"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreDogrusalDenetleyiciKp2"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreDogrusalDenetleyiciKi2"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreDogrusalDenetleyiciKi2"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreDogrusalDenetleyiciKd2"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreDogrusalDenetleyiciKd2"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	
+	                    	<!-- 
+	                    		Kısıtlar parametrelerine ait başlık ve çizgileri içeren Layouttur.
+	                    		
+	                    		@android:layout_width="fill_parent" => Layoutun içeriği kendisine ait alanı yatayda dolduracak şekilde konumlandırımlıştır.
+	                    		@android:layout_height="30dp" => Layoutun yüksekliği 30dp olarak ayarlanmıştır.
+	                    		@android:orientation="horizontal" => Çizgilerin ve başlığın yanyana olması için Layoutun içi yatay olarak konumlandırılmıştır.
+	                    	 -->
+	                    	<LinearLayout 
+	                    	    android:layout_width="fill_parent"
+	                    		android:layout_height="30dp"
+	                    		android:orientation="horizontal">
+	                    		<TextView
+									android:layout_width="30dp"
+									android:layout_height="1dp"
+									android:background="#00FFFF"
+									android:layout_gravity="center"/>      	
+		                    	<TextView 
+		                    	    android:layout_gravity="center"
+		                    	    android:textColor="@android:color/black"
+		                    	    android:layout_marginLeft="5dp"
+		                    	    android:layout_marginRight="6dp"
+		                    		android:layout_width="wrap_content"
+		                    		android:layout_height="wrap_content"
+		                    		android:text="@string/ParametrelerKisitlar"
+		                    		android:textStyle="bold"
+		                    		android:textSize="19sp"/>
+		                    	<TextView
+									android:layout_width="fill_parent"
+									android:layout_height="1dp"
+									android:background="#00FFFF"
+									android:layout_gravity="center"
+									/>
+		                    </LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreKisitlarMaksimumDogrusalHiz"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreKisitlarMaksimumDogrusalHiz"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreKisitlarMaksimumAcisalHiz"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreKisitlarMaksimumAcisalHiz"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreKisitlarMaksimumDogrusalIvmelenme"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreKisitlarMaksimumDogrusalIvmelenme"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreKisitlarMaksimumAcisalIvmelenme"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreKisitlarMaksimumAcisalIvmelenme"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreKisitlarMinimumDogrusalHiz"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreKisitlarMinimumDogrusalHiz"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreKisitlarMinimumAcisalHiz"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreKisitlarMinimumAcisalHiz"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreKisitlarMinimumDogrusalIvmelenme"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreKisitlarMinimumDogrusalIvmelenme"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreKisitlarMinimumAcisalIvmelenme"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreKisitlarMinimumAcisalIvmelenme"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<TextView
+									android:layout_width="fill_parent"
+									android:layout_height="1dp"
+									android:background="#00FFFF"
+									android:layout_gravity="center"/> 
+	                	</LinearLayout>
+	                </ScrollView>
+	                
+	               	<!--
+	                	Tab3'e ScrollView verilerek daha fazla içeriğin alan içerisinde aşağıya doğru bir Scroll yardımı ile yerleştirilmesinin sağlandığı alandır.
+	                 	
+	                 	@android:id="@+id/tab3" => Tab3 için id verilerek Java kodu üzerinden düzenlebilmesine imkan sağlanmıştır.
+	                    @android:layout_width="fill_parent" => Tab3 e ait kısmın yatayda alana yayılması sağlanmıştır.
+	                    @android:layout_height="wrap_content" => Tab3 e ait ögelerin her birinin yüksekliğinin boyutu kadar olması sağlanmıştır.
+	                 -->
+	                <ScrollView
+	                    android:id="@+id/tab3"
+	                    android:layout_width="fill_parent"
+	                    android:layout_height="wrap_content">
+	                    
+	                    <!--
+	                    	Tab3 e ait Parametlerin yer aldığı LinearLayouttur.
+	                    	ScrollViewin içeirisinde yer aldığında dolayı çok daha fazla öğe eklenebilir.
+	                    	
+	                    	@android:layout_width="fill_parent" => Layoutun genişlik olarak verilen alanın tamamamını kaplaması sağlanmıştır.
+	                    	@android:layout_height="wrap_content" => Layoutun genişlik olarak verilen alana sığdırılması sağlanmıştır..
+	                    	@android:orientation="vertical" => Layout dikey olarak konumlandırılmıştır. Bu sebeple içerisine dizilecek öğeler alt alta yarleşecektir.
+	                     -->
+	                    <LinearLayout 
+	                        android:layout_width="fill_parent"
+	                    	android:layout_height="wrap_content"
+	                    	android:orientation="vertical">
+	                    	
+	                    	<!--
+	                        	Tab3'e ait başlığı içeren TextViewdir. 
+	                        	 
+	                        	@android:layout_gravity="center_horizontal" => Yazılan textin yatay olarak ortalanması sağlanmıştır.
+	                    		@android:layout_width="wrap_content" => Yazının genişliğinin kendisi kadar yer kaplaması sağlanmıştır.
+	                    		@android:layout_height="wrap_content" => Yazının yüksekliğinin kendisi kadar yer kaplaması sağlanmıştır.
+	                    		@android:text="@string/PARAMETRELERSensorKonumveBilgileri" => String dosyası içerisinden başlığa ait text çağrılmıştır.
+	                    		@android:textSize="20sp" => Yazının boyutu 20sp olarak ayarlanmıştır.
+	                    		@android:textStyle="bold" => Text stili bold olarak ayarlanmıştır.
+	                    		@android:textColor="@android:color/black" => Text rengi siyah olarak ayarlanmıştır.
+	                         -->
+	                    	<TextView 
+	                    	    android:layout_gravity="center_horizontal"
+	                    		android:layout_width="wrap_content"
+	                    		android:layout_height="wrap_content"
+	                    		android:text="@string/PARAMETRELERSensorKonumveBilgileri"
+	                    		android:textStyle="bold"
+	                    		android:textSize="20sp"
+	                    		android:textColor="@android:color/black"/>
+	                    	<LinearLayout 
+	                    	    android:layout_width="fill_parent"
+	                    		android:layout_height="30dp"
+	                    		android:orientation="horizontal">
+	                    		<TextView
+									android:layout_width="30dp"
+									android:layout_height="1dp"
+									android:background="#00FFFF"
+									android:layout_gravity="center"/>      	
+		                    	<TextView 
+		                    	    android:layout_gravity="center"
+		                    	    android:textColor="@android:color/black"
+		                    	    android:layout_marginLeft="5dp"
+		                    	    android:layout_marginRight="6dp"
+		                    		android:layout_width="wrap_content"
+		                    		android:layout_height="wrap_content"
+		                    		android:text="@string/ParametrelerSMO15"
+		                    		android:textStyle="bold"
+		                    		android:textSize="19sp"/>
+		                    	<TextView
+									android:layout_width="fill_parent"
+									android:layout_height="1dp"
+									android:background="#00FFFF"
+									android:layout_gravity="center"
+									/>
+		                    </LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreSMO15KimlikBilgisi"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreSMO15KimlikBilgisi"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreSMO15XKordinati"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreSMO15XKordinati"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreSMO15YKordinati"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreSMO15YKordinati"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreSMO15YonBilgisi"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreSMO15YonBilgisi"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout 
+	                    	    android:layout_width="fill_parent"
+	                    		android:layout_height="30dp"
+	                    		android:orientation="horizontal">
+	                    		<TextView
+									android:layout_width="30dp"
+									android:layout_height="1dp"
+									android:background="#00FFFF"
+									android:layout_gravity="center"/>      	
+		                    	<TextView 
+		                    	    android:layout_gravity="center"
+		                    	    android:textColor="@android:color/black"
+		                    	    android:layout_marginLeft="5dp"
+		                    	    android:layout_marginRight="6dp"
+		                    		android:layout_width="wrap_content"
+		                    		android:layout_height="wrap_content"
+		                    		android:text="@string/ParametrelerEnkoder"
+		                    		android:textStyle="bold"
+		                    		android:textSize="19sp"/>
+		                    	<TextView
+									android:layout_width="fill_parent"
+									android:layout_height="1dp"
+									android:background="#00FFFF"
+									android:layout_gravity="center"
+									/>
+		                    </LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreEnkoderCozunurluk"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreEnkoderCozunurluk"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout 
+	                    	    android:layout_width="fill_parent"
+	                    		android:layout_height="30dp"
+	                    		android:orientation="horizontal">
+	                    		<TextView
+									android:layout_width="30dp"
+									android:layout_height="1dp"
+									android:background="#00FFFF"
+									android:layout_gravity="center"/>      	
+		                    	<TextView 
+		                    	    android:layout_gravity="center"
+		                    	    android:textColor="@android:color/black"
+		                    	    android:layout_marginLeft="5dp"
+		                    	    android:layout_marginRight="6dp"
+		                    		android:layout_width="wrap_content"
+		                    		android:layout_height="wrap_content"
+		                    		android:text="@string/ParametrelerLazer"
+		                    		android:textStyle="bold"
+		                    		android:textSize="19sp"/>
+		                    	<TextView
+									android:layout_width="fill_parent"
+									android:layout_height="1dp"
+									android:background="#00FFFF"
+									android:layout_gravity="center"
+									/>
+		                    </LinearLayout>
+	                    	<TextView 
+	                    	    android:textColor="@android:color/black"
+	                    	    android:layout_marginLeft="20dp"
+	                    		android:layout_width="wrap_content"
+	                    		android:layout_height="wrap_content"
+	                    		android:text="@string/DahaSonraEklenecekTEXTi"
+	                    		android:textSize="18sp"/>
+	                    	<LinearLayout 
+	                    	    android:layout_width="fill_parent"
+	                    		android:layout_height="30dp"
+	                    		android:orientation="horizontal">
+	                    		<TextView
+									android:layout_width="30dp"
+									android:layout_height="1dp"
+									android:background="#00FFFF"
+									android:layout_gravity="center"/>      	
+		                    	<TextView 
+		                    	    android:layout_gravity="center"
+		                    	    android:textColor="@android:color/black"
+		                    	    android:layout_marginLeft="5dp"
+		                    	    android:layout_marginRight="6dp"
+		                    		android:layout_width="wrap_content"
+		                    		android:layout_height="wrap_content"
+		                    		android:text="@string/ParametrelerBar"
+		                    		android:textStyle="bold"
+		                    		android:textSize="19sp"/>
+		                    	<TextView
+									android:layout_width="fill_parent"
+									android:layout_height="1dp"
+									android:background="#00FFFF"
+									android:layout_gravity="center"
+									/>
+		                    </LinearLayout>
+	                    	<TextView 
+	                    	    android:textColor="@android:color/black"
+	                    	    android:layout_marginLeft="20dp"
+	                    		android:layout_width="wrap_content"
+	                    		android:layout_height="wrap_content"
+	                    		android:text="@string/DahaSonraEklenecekTEXTi"
+	                    		android:textSize="18sp"/>
+	                    	<LinearLayout 
+	                    	    android:layout_width="fill_parent"
+	                    		android:layout_height="30dp"
+	                    		android:orientation="horizontal">
+	                    		<TextView
+									android:layout_width="30dp"
+									android:layout_height="1dp"
+									android:background="#00FFFF"
+									android:layout_gravity="center"/>      	
+		                    	<TextView 
+		                    	    android:layout_gravity="center"
+		                    	    android:textColor="@android:color/black"
+		                    	    android:layout_marginLeft="5dp"
+		                    	    android:layout_marginRight="6dp"
+		                    		android:layout_width="wrap_content"
+		                    		android:layout_height="wrap_content"
+		                    		android:text="@string/ParametrelerMob"
+		                    		android:textStyle="bold"
+		                    		android:textSize="19sp"/>
+		                    	<TextView
+									android:layout_width="fill_parent"
+									android:layout_height="1dp"
+									android:background="#00FFFF"
+									android:layout_gravity="center"
+									/>
+		                    </LinearLayout>
+	                    	<TextView 
+	                    	    android:textColor="@android:color/black"
+	                    	    android:layout_marginLeft="20dp"
+	                    		android:layout_width="wrap_content"
+	                    		android:layout_height="wrap_content"
+	                    		android:text="@string/DahaSonraEklenecekTEXTi"
+	                    		android:textSize="18sp"/>
+	                    	<LinearLayout 
+	                    	    android:layout_width="fill_parent"
+	                    		android:layout_height="30dp"
+	                    		android:orientation="horizontal">
+	                    		<TextView
+									android:layout_width="30dp"
+									android:layout_height="1dp"
+									android:background="#00FFFF"
+									android:layout_gravity="center"/>      	
+		                    	<TextView 
+		                    	    android:layout_gravity="center"
+		                    	    android:textColor="@android:color/black"
+		                    	    android:layout_marginLeft="5dp"
+		                    	    android:layout_marginRight="6dp"
+		                    		android:layout_width="wrap_content"
+		                    		android:layout_height="wrap_content"
+		                    		android:text="@string/ParametrelerGAB"
+		                    		android:textStyle="bold"
+		                    		android:textSize="19sp"/>
+		                    	<TextView
+									android:layout_width="fill_parent"
+									android:layout_height="1dp"
+									android:background="#00FFFF"
+									android:layout_gravity="center"
+									/>
+		                    </LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreGABOfsetX"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreGABOfsetX"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreGABOfsetY"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreGABOfsetY"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<LinearLayout
+	                    		android:orientation="horizontal"
+	                    		android:layout_width="fill_parent"
+	                    		android:layout_height="wrap_content" >
+	                    		<TextView 
+	                    		    android:textColor="@android:color/black"
+	                    		    android:textSize="18sp"
+	                    		    android:layout_marginLeft="20dp"
+	                    			android:layout_height="wrap_content"
+	                    			android:layout_gravity="left"
+	                    			android:layout_weight="0.5"
+	                    			android:text="@string/ParametreGABOfsetZ"
+	                    			android:layout_width="fill_parent"/>
+	                    		<EditText 
+	                    			android:layout_width="fill_parent"
+	                    			android:layout_weight="0.5"
+	                    			android:layout_gravity="right"
+	                    			android:layout_height="wrap_content"
+	                    			android:id="@+id/editTextParametreGABOfsetZ"
+	                    			android:layout_marginRight="15dp"/>
+	                    	</LinearLayout>
+	                    	<TextView
+									android:layout_width="fill_parent"
+									android:layout_height="1dp"
+									android:background="#00FFFF"
+									android:layout_gravity="center"/> 
+	                    </LinearLayout>
+	                </ScrollView>
+	            </FrameLayout>
+	        </LinearLayout>
+	    </TabHost>
+	  	
+	    <!--
+	    	Tabın yanında yer alan butonlar ve radyo butonlarının yerleştirildiği LinearLayouttur. 
+	    	
+	    	@android:layout_width="fill_parent" => Belirlenen alanın genişlik olarak doldurulması sağlanmıştır.
+	        @android:layout_height="fill_parent" => Belirlenen alanın yükseklik olarak doldurulması sağlanmıştır.
+	        @android:layout_weight="5" => Bu kısım için ekranda tab bu kısmın bulunduğu LinearLayouttda kullanılacak alan 5 birim olarak belirlenmiştir.
+	        @android:gravity="center" => Alan içerisine yerleştirilecek öğelerin alanda merkezde olması ayarlanmıştır.
+	        @android:orientation="vertical" => Alan dikey olarak konumlandırılmıştır.
+	     -->
+	    <LinearLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        android:layout_weight="5"
+	        android:gravity="center"
+	        android:orientation="vertical">
+	        
+	        <!--
+	        	Haberleşme Seçime Ait Radyo Butonunu içerir.
+	        	
+	        	@android:id="@+id/HaberlesmeSecimi" => Haberleşme Seçimine ait radyo butona HaberlesmeSecimi IDsi verilmiştir.
+		        @android:layout_width="wrap_content" => Butonun genişlik olarak içeriğinin kendisi kadar yer kaplaması sağlanmıştır.
+		        @android:layout_height="wrap_content" => Butonun yükseklik olarak içeriğinin kendisi kadar yer kaplaması sağlanmıştır.
+		        @android:text="@string/RadioButtonMod" => string dosyası içerisinden butonun adına ait text çağrılmıştır.
+	         -->
+		    <RadioButton 
+		        android:id="@+id/HaberlesmeSecimi"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="@string/RadioButtonMod"/>
+		    
+		     <!--
+	        	Log tutma işlemine Ait Radyo Butonunu içerir.
+	        	
+	        	@android:id="@+id/LogTutma" => Log Tutmaya ait radyo butona LogTutma IDsi verilmiştir.
+		        @android:layout_width="wrap_content" => Butonun genişlik olarak içeriğinin kendisi kadar yer kaplaması sağlanmıştır.
+		        @android:layout_height="wrap_content" => Butonun yükseklik olarak içeriğinin kendisi kadar yer kaplaması sağlanmıştır.
+		        @android:text="@string/RadioButtonMod" => string dosyası içerisinden butonun adına ait text çağrılmıştır.
+	         -->
+		    <RadioButton 
+		        android:id="@+id/LogTutma"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="@string/RadioButtonLog"/>
+		    
+		    <!-- 
+		    	AKB'ye ait veri transferi butonlarının bulunduğu kısma ait başlık ve çizgileri içerir.
+		    	
+		    	@android:layout_width="fill_parent" => Butonlara ait başlık alanın genişlik olarak tamamının Layout ile doldurulması sağlanmıştır. 
+		        @android:layout_height="wrap_content" => Butonlara ait başlık alanın genişliğinin butonların text içeriğine bağlı olarak yükseklik olarak sığdırılması sağlanmıştır.
+		        @android:layout_marginTop="75dp" => Radyo butonlar ile butonlara ait başlığın bitişik olmaması için butonlara ait olan bu layoutun üstüne 75dp boşluk konulmuştur.
+		        @android:orientation="horizontal" => Başlık ve başığın kenarlarındaki çizgilerin yanyana olması adına Layout yatay konumlandırılmıştır.
+		     --> 
+		    <LinearLayout 
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="75dp"
+		        android:orientation="horizontal">
+	            
+		        <!-- 
+		        	AKB Paneline ait Textin solundaki çizgiye ait textViewi gösterilmesini sağlar.
+		        	
+		        	@android:layout_width="20dp" => Textin başındaki çizginin genişliğinin ayarlanmasını işlemidir. 
+					@android:layout_height="1dp" => Çizgiye ait yükseklik 1dp olarak ayarlanmıştır.
+					@android:background="#DADADA" => Çizginin rengi belirlenmiştir.
+				 	@android:layout_gravity="center" => Çizginni Layout içerisinde ortada olması sağlanmıştır.
+		         -->
+		        <TextView
+					android:layout_width="20dp"
+					android:layout_height="1dp"
+					android:background="#DADADA"
+				 	android:layout_gravity="center"/>
+		        
+		        <!--
+		        	AKB paneline ait AKB Paneli Textini içerir.
+		        	
+		        	@android:layout_width="wrap_content" => 
+			        @android:layout_height="wrap_content" =>
+			        @android:layout_marginLeft="2dp" =>
+			        @android:layout_marginRight="2dp" =>
+			        @android:text="@string/AKBPaneli" =>
+		         -->
+			    <TextView
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_marginLeft="2dp"
+			        android:layout_marginRight="2dp"
+			        android:text="@string/AKBPaneli"/>
+			    <TextView
+					android:layout_width="fill_parent"
+					android:layout_height="1dp"
+					android:background="#DADADA"
+					android:layout_gravity="center"/>
+		    </LinearLayout>
+		    <Button 
+		        android:id="@+id/AkbyeAktar"
+		        android:layout_width="140dp"
+		        android:drawableLeft="@drawable/upload"
+		        android:layout_height="wrap_content"
+		        android:text="@string/ButtonAKByeGonder"/>
+		    <Button 
+		        android:id="@+id/AkbdenAl"
+		        android:layout_width="140dp"
+		        android:drawableLeft="@drawable/download"
+		        android:layout_height="wrap_content"
+		        android:text="@string/ButtonAKBdenAl" />
+	    </LinearLayout>
+	</LinearLayout>
+    <TextView
+		android:layout_width="fill_parent"
+		android:layout_height="1dp"
+		android:background="#DADADA"
+		android:layout_marginBottom="3dp"/>
+	<LinearLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:orientation="horizontal"
+	    android:layout_weight="25"
+	    android:gravity="left">
+	    <Button
+	        android:id="@+id/KaydetButonu" 
+	        android:layout_width="140dp"
+	        android:layout_height="wrap_content"
+	        android:drawableLeft="@drawable/kaydetme"
+			android:layout_marginLeft="100dp"
+	        android:layout_marginRight="10dp"
+	        android:text="@string/ButtonKaydet"/>
+	    <Button
+	        android:id="@+id/DuzenleButonu" 
+	        android:layout_width="140dp"
+	        android:layout_height="wrap_content"
+	        android:drawableLeft="@drawable/duzenleme"
+			android:layout_marginLeft="10dp"
+	        android:layout_marginRight="10dp"
+	        android:text="@string/ButtonDuzenle"/>
+		<Button
+	        android:id="@+id/DosyaAcButonu" 
+	        android:layout_width="140dp"
+	        android:layout_height="wrap_content"
+	        android:drawableLeft="@drawable/acma"
+			android:layout_marginLeft="10dp"
+	        android:layout_marginRight="10dp"
+	        android:text="@string/ButtonDosyaAc"/>
+	</LinearLayout>
+</LinearLayout>

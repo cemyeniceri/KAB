@@ -1,0 +1,41 @@
+Sürüm Numarasý: 01.000.001
+
+Tarih: 27/04/2013
+
+Donaným Versiyonu: ASUS Nexus 7
+
+Ýyileþtirmeler ve Deðiþtirmeler:
+
+	1 - 
+	2 - 
+	3 - 
+
+Yazýlým Kabiliyetleri:
+
+	1 -  
+	2 - 
+	3 -
+
+Eklenen Özellikler:
+
+	1 -  
+	2 - 
+	3 - 
+
+Çýkartýlan Özellikler:
+
+	1 -  
+	2 - 
+	3 - 
+
+Buglar:
+
+	1 -  
+	2 - 
+	3 - 
+
+Uyarýlar:
+
+	1 -  
+	2 - 
+	3 - 

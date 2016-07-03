@@ -1,0 +1,62 @@
+Çalýþýlan Sürüm Numarasý: 01.000.001
+
+Tarih: 27/04/2013 
+
+Donaným Versiyonu: ASUS Nexus 7
+
+Ýyileþtirmeler ve Deðiþtirmeler:
+
+	Paket Adý:	
+	
+	Sýnýf Adý:	
+	
+	Fonksiyon Adý:  
+
+	1 - 
+	2 - 
+	3 - 
+
+Düzeltilen Buglar:
+
+	1 -  
+	2 - 
+	3 - 
+
+Eklemeler:
+
+	Paket Adý:	com.example.kab
+	
+	Sýnýf Adý:	ImKAB_XMLKutuphanesi
+	
+	Fonksiyon Adý:
+
+	1 - Im_YeniDosyaAcmaAyari fonksiyonu eklendi
+	2 - Im_VarolanDosyayiAcmaAyari fonksiyonu eklendi.
+	3 - Im_BelgedenStringYarat fonksiyonu eklendi.
+	4 - Im_DosyaKaydet fonksiyonu eklendi.
+	5 - Im_XMLOlustur fonksiyonu eklendi.
+	6 - Im_XMLVeriOku fonksiyonu eklendi.
+	7 - Im_XMLEtiketEkle fonksiyonu eklendi.
+	8 - Im_XMLEtiketIsmiGuncelle fonksiyonu eklendi.
+	9 - Im_XMLEtiketSil fonksiyonu eklendi.
+	10- Im_XMLVeriYaz fonksiyonu eklendi.
+	11- Im_XMLVeriGuncelle fonksiyonu eklendi.
+	12- Im_XMLVeriSil fonksiyonu eklendi.
+
+	Arayüz Adý:	Açýlýþ Ekraný, Navigasyon Ekraný, Sürücü Destek Ekraný, Yönetici Ekraný
+	
+
+
+Çýkarmalar:
+
+	Paket Adý:
+	
+	Sýnýf Adý:
+	
+	Fonksiyon Adý:
+
+	1 - 
+	2 - 
+	3 - 
+
+Özel Notlar: 

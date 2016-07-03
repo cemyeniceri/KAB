@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">KAB</string>
+	<string name="action_settings">Settings</string>
+	<string name="title_activity_acilis_ekrani">ATEKS KULLANICI ARABİRİMİ2</string>
+	<string name="Yazilim_ismi1">ATEKS KULLANICI ARABİRİM</string>
+	<string name="Yazilim_ismi2">YAZILIMI</string>
+	<string name="Firma_ismi">İNOVASYON MÜHENDİSLİK LTD. ŞTİ.</string>
+	<string name="SecimPaneli">Seçim Paneli</string>
+	<string name="ButtonYonetici">Yönetici</string>
+	<string name="ButtonSurusDestek">Sürüş Destek</string>
+	<string name="ModDurumu">Mod Durumu</string>
+	<string name="KrokiPanel">Kroki</string>
+	<string name="ButtonKroki">Kroki Yüklemesi</string>
+	<string name="RotaPanel">Rota</string>
+	<string name="ButtonRotaPlanla">Planla</string>
+	<string name="ButtonRotaGoster">Göster</string>
+	<string name="ButtonHedefSec">Hedef</string>
+	<string name="ButtonNavigasyon">Navigasyon</string>
+	<string name="ButtonMod">Anlık Mod</string>
+	<string name="RadioButtonMod">Otonom Mod</string>
+	<string name="RadioButtonSes">Ses Aç/Kapa</string>
+	<string name="RadioButtonLog">Log Tut</string>
+	<string name="ButtonLog">Log</string>
+	<string name="ButtonDosyaAc">Dosya Aç</string>
+    <string name="ButtonKaydet">Kaydet</string>
+    <string name="ButtonDuzenle">Düzenle</string>
+    <string name="ButtonAKBdenAl">AKB\'den Al</string>
+    <string name="ButtonAKByeGonder">AKB\' ye Gonder</string>
+    <string name="AKBPaneli">AKB Paneli</string>
+    <string name="Alarm">Alarm</string>
+    <string name="Alarm1">A1</string>
+    <string name="Alarm2">A2</string>
+    <string name="Alarm3">A3</string>
+    <string name="SensorTazeleme">Sensör Tazeleme:</string>
+    <string name="DahaSonraEklenecekTEXTi">--Bu Kısıma Ait Detaylar Daha Sonra Eklenecek--</string>
+    <string-array name="tazeleme_hizi_arayi">    	
+    	<item>10 m/s</item>
+       	<item>20 m/s</item>
+       	<item>30 m/s</item>
+       	<item>40 m/s</item>
+       	<item>50 m/s</item>
+       	<item>60 m/s</item>
+       	<item>70 m/s</item>
+       	<item>80 m/s</item>
+   	</string-array>
+   	<string-array name="modsecimiarrayi">    	
+    	<item>Otonom Mod</item>
+       	<item>Özel Mod</item>
+   	</string-array>
+   	
+   	<string name="PARAMETRELERDinamikveKinematik">DİNAMİK VE KİNEMATİK PARAMETRELER</string>
+   	<string name="ParametrelerDinamik">DİNAMİK</string>
+    <string name="ParametreDinamikKutle">Kütle:</string>
+    <string name="ParametreDinamikAgirlikMerkezi">Ağırlık Merkezi:</string>
+    <string name="ParametreDinamikEylemsizlikMomenti">Eylemsizlik Momenti:</string>
+    <string name="ParametreDinamikEnkoder">Enkoder:</string>
+    <string name="ParametreDinamikSurtunmeKatSayisi">Sürtünme Kat Sayısı:</string>
+    <string name="ParametreDinamikSurucuAgirligi">Sürücü Ağırlığı:</string>
+    <string name="ParametreDinamikIkiTekerEksenMerkezi">İki Teker Eksen Merkezi:</string>
+    <string name="ParametreDinamikKutleMerkezi">Kütle Merkezi:</string>
+    <string name="ParametreDinamikTmKmArasiMesafe">TM KM Arası Mesafe:</string>
+    <string name="ParametreDinamikArkaTekerlerArasiMesafe">Arka Tekerler Arası Mesafe:</string>
+    <string name="ParametreDinamikOnTekerlerArasiMesafe">Ön Tekerler Arası Mesafe:</string>
+    <string name="ParametreDinamikOnArkaTekerlerArasiMesafe">Ön Arka Tekerler Arası Mesafe:</string>
+    <string name="ParametreDinamikArkaTekerYaricapi">Arka Teker Yarıçapı:</string>
+    <string name="ParametreDinamikTekerMotorSistemiEylemsizligi">Teker Motor Sistemi Eylemsizliği:</string>
+    <string name="ParametreDinamikNominalAci">Nominal Açı:</string>
+    <string name="ParametreDinamikViskoziteSurtunmeKatsayisi">Viskozite Sürtünme Katsayısı:</string>
+    
+    <string name="ParametrelerKinematik">KİNEMATİK</string>
+    <string name="ParametrelerMotor">MOTOR</string>
+    <string name="ParametreMotorIcDirenci">Motor İç Direnci:</string>
+    <string name="ParametreMotorInduktansi">Motor İndüktansı:</string>
+    <string name="ParametreMotorSurucuKazanci">Motor Sürücü Kazancı:</string>
+    <string name="ParametreMotorMaksimumGerilimi">Motor Maksimum Gerilimi:</string>
+    <string name="ParametreMotorElektrikRezistansi">Motorun Elektrik Rezistansi:</string>
+    <string name="ParametreMotorTorkSabiti">Motor Tork Sabiti:</string>
+    <string name="ParametreMotorDogrusalArzuEdilenHiz">Doğrusal Arzu Edilen Hız:</string>
+    <string name="ParametreMotorAcisalArzuEdilenHiz">Açisal Arzu Edilen Hız: </string>
+    <string name="ParametreMotorVitesOrani">Vites Oranı:</string>
+    
+    <string name="ParametrelerArac">ARAÇ</string>
+    <string name="ParametreAracTekerSayisi">Teker Sayısı:</string>
+    <string name="ParametreAracSurusTipi">Sürüş Tipi:</string>
+    <string name="ParametreAracAksUzunlugu">Aks Uzunluğu:</string>
+    <string name="ParametreAracTekerinDogrusalHizi">Tekerin Doğrusal Hizi:</string>
+    <string name="ParametreAracTekerinAcisalHizi">Tekerin Açısal Hızı:</string>
+    <string name="ParametreAracKutleMerkezindeAcisalHiz">Kütle Merkezinde Oluşan Açısal Hız:</string>
+    <string name="ParametreAracKutleMerkezindeTork">Kütle Merkezinde Oluşan Tork:</string>
+    <string name="ParametreAracSagTekerdeOlusanTork">Sağ Tekerde Oluşan Tork:</string>
+    <string name="ParametreAracSolTekerdeOlusanTork">Sol Tekerde Oluşan Tork:</string>
+    <string name="ParametreAracGirisVoltajlariMotorlarin">Motorların Giriş Voltajları:</string>
+    <string name="ParametreAracElektromotiveKuvvetSabiti">Elektromotive Kuvvet Sabiti:</string>
+    
+    <string name="PARAMETRELERSensorKonumveBilgileri">SENSÖR ve KONUM BİLGİLERİ</string>
+    <string name="ParametrelerSMO15">SMO15</string>
+    <string name="ParametreSMO15KimlikBilgisi">Kimlik Bilgisi:</string>
+    <string name="ParametreSMO15XKordinati">X Kordinatı:</string>
+    <string name="ParametreSMO15YKordinati">Y Kordinatı:</string>
+    <string name="ParametreSMO15ZKordinati">Z Kordinatı:</string>
+    <string name="ParametreSMO15YonBilgisi">Yön Bilgisi:</string>
+    
+    <string name="ParametrelerEnkoder">ENKODER</string>
+    <string name="ParametreEnkoderCozunurluk">Çözünürlük:</string>
+    
+    <string name="ParametrelerLazer">LAZER</string>
+    
+    <string name="ParametrelerBar">BAR</string>
+    
+    <string name="ParametrelerMob">MOB</string>
+    
+    <string name="ParametrelerGAB">GAB</string>
+    <string name="ParametreGABOfsetX">Ofset X:</string>
+    <string name="ParametreGABOfsetY">Ofset Y:</string>
+    <string name="ParametreGABOfsetZ">Ofset Z:</string>
+    
+    <string name="PARAMETRELERDenetleyiciTipveParametreler">DENETLEYİCİ TİP VE PARAMETRELERİ</string>
+    <string name="ParametrelerAcisalDenetleyici">AÇISAL DENETLEYİCİ PARAMETRELER</string>
+    <string name="ParametreAcisalDenetleyiciKp1">Kp1:</string>
+    <string name="ParametreAcisalDenetleyiciKi1">Ki1:</string>
+    <string name="ParametreAcisalDenetleyiciKd1">Kd1:</string>
+    <string name="ParametreAcisalDenetleyiciKp2">Kp2:</string>
+    <string name="ParametreAcisalDenetleyiciKi2">Ki2:</string>
+    <string name="ParametreAcisalDenetleyiciKd2">Kd2:</string>
+    
+    <string name="ParametrelerDogrusalDenetleyiciParametreler">DOĞRUSAL DENETLEYİCİ PARAMETRELER</string>
+    <string name="ParametreDogrusalDenetleyiciKp1">Kp1:</string>
+    <string name="ParametreDogrusalDenetleyiciKi1">Ki1:</string>
+    <string name="ParametreDogrusalDenetleyiciKd1">Kd1:</string>
+    <string name="ParametreDogrusalDenetleyiciKp2">Kp2:</string>
+    <string name="ParametreDogrusalDenetleyiciKi2">Ki2:</string>
+    <string name="ParametreDogrusalDenetleyiciKd2">Kd2:</string>
+    
+    <string name="ParametrelerKisitlar">KISITLAR</string>
+    <string name="ParametreKisitlarMaksimumDogrusalHiz">Maksimum Doğrusal Hız:</string>
+    <string name="ParametreKisitlarMaksimumAcisalHiz">Maksimum Açısal Hız:</string>
+    <string name="ParametreKisitlarMaksimumDogrusalIvmelenme">Maksimum Doğrusal İvmelenme:</string>
+    <string name="ParametreKisitlarMaksimumAcisalIvmelenme">Maksimum Açısal İvmelenme:</string>
+    <string name="ParametreKisitlarMinimumDogrusalHiz">MinimumDoğrusal Hız:</string>
+    <string name="ParametreKisitlarMinimumAcisalHiz">Minimum Açısal Hız:</string>
+    <string name="ParametreKisitlarMinimumDogrusalIvmelenme">Minimum Doğrusal İvmelenme:</string>
+    <string name="ParametreKisitlarMinimumAcisalIvmelenme">Minimum Açısal İvmelenme:</string>
+</resources>

@@ -1,0 +1,235 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical"
+	android:background="@drawable/background" 
+	android:weightSum="7">
+
+	<LinearLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_weight="2"
+	    android:orientation="horizontal"
+	    android:gravity="center"
+	    android:paddingBottom="5sp"
+	    android:paddingTop="5sp" >
+
+		<Button
+			android:layout_width="220dp"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="20dp"
+			android:layout_marginRight="20dp"
+			android:id="@+id/butonSurusDestek"
+			android:text="@string/ButtonSurusDestek"
+			android:drawableLeft="@drawable/social_group"
+			android:onClick="onKullanici"/>
+		<Button
+			android:layout_width="220dp"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="20dp"
+			android:layout_marginRight="20dp"
+			android:drawableLeft="@drawable/social_person"
+			android:id="@+id/butonYonetici"
+			android:text="@string/ButtonYonetici"
+			android:onClick="onYonetici"/>
+		<TextView 
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginRight="20dp"
+				android:layout_marginLeft="20dp"
+				android:id="@+id/ModDurumu"
+				android:text="@string/ModDurumu"/>	
+        <Spinner
+            android:id="@+id/ModSecimiSpinner"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:layout_margin="2dp"
+            android:entries="@array/modsecimiarrayi"
+            android:popupBackground="#DADADA" />	
+	</LinearLayout>
+	<LinearLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_weight="1"
+	    android:orientation="horizontal" >
+
+		<TextView 
+			android:paddingTop="5dp"         
+	      	android:layout_width="fill_parent" 
+	      	android:layout_height="2dp" 
+	      	android:background="#DADADA" />
+	</LinearLayout>
+	<LinearLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_weight="2"
+	    android:orientation="horizontal"
+	    android:paddingBottom="10sp"
+	    android:paddingTop="5sp" 
+	    android:weightSum="2">
+		<LinearLayout 
+		    android:layout_weight="1"
+			android:layout_width="fill_parent"
+	    	android:layout_height="fill_parent">
+			<ImageView 
+				android:src="@drawable/gmap"
+				android:layout_marginLeft="30dp"
+				android:layout_marginRight="30dp"
+				android:layout_width="450dp"
+				android:layout_height="250dp"/>
+		</LinearLayout>
+		<LinearLayout 
+		    android:layout_weight="1"
+			android:orientation="vertical"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:gravity="center">
+			<LinearLayout
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:gravity="center" >
+				<TextView
+					android:layout_width="50dp"
+					android:layout_height="2dp"
+					android:background="#DADADA"/>
+				<TextView
+					android:id="@+id/textView5"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:paddingLeft="4dp"
+					android:paddingRight="4dp"
+					android:text="@string/KrokiPanel"/>
+				<TextView
+					android:layout_width="160dp"
+					android:layout_height="2dp"
+					android:background="#DADADA"/>
+			</LinearLayout>
+			<Button
+				android:id="@+id/butonKroki"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/ButtonKroki"
+				android:drawableLeft="@drawable/upload"
+				android:textSize="15sp"
+				android:layout_gravity="center" />
+			<LinearLayout
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:gravity="center" >
+				<TextView
+					android:layout_width="50dp"
+					android:layout_height="2dp"
+					android:background="#DADADA"/>
+				<TextView
+					android:id="@+id/textView6"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:paddingLeft="4dp"
+					android:paddingRight="4dp"
+					android:text="@string/RotaPanel" />
+				<TextView
+					android:layout_width="160dp"
+					android:layout_height="2dp"
+					android:background="#DADADA"/>
+			</LinearLayout>
+			<LinearLayout
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:gravity="center" >
+			<Button
+				android:id="@+id/butonRotaPlanla"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/ButtonRotaPlanla"
+				android:textSize="15sp"
+				android:drawableLeft="@drawable/planla"
+				android:layout_gravity="center" />
+			<Button
+				android:id="@+id/butonRotaGoster"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/ButtonRotaGoster"
+				android:textSize="15sp"
+				android:drawableLeft="@drawable/goster"
+				android:layout_gravity="center" />
+			<Button
+				android:id="@+id/butonHedefSec"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/ButtonHedefSec"
+				android:drawableLeft="@drawable/isaretle"
+				android:textSize="15sp"
+				android:layout_gravity="center" />
+			</LinearLayout>
+		</LinearLayout>
+	</LinearLayout>
+
+	<LinearLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_weight="1"
+	    android:orientation="horizontal" >
+
+		<TextView 
+			android:paddingTop="5dp"         
+	      	android:layout_width="fill_parent" 
+	      	android:layout_height="2dp" 
+	      	android:background="#DADADA" />
+	</LinearLayout>
+
+	<LinearLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="10dp"
+	    android:layout_weight="2"
+	    android:orientation="horizontal" 
+	    android:gravity="top">
+
+        <Button
+            android:id="@+id/LogAlma"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:text="@string/ButtonLog"
+            android:drawableLeft="@drawable/downloadsmall" />
+        <LinearLayout 
+        	android:orientation="horizontal"
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:gravity="right"
+        	android:layout_marginRight="100dp">
+			<TextView
+				android:id="@+id/textView7"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:paddingLeft="4dp"
+				android:paddingRight="4dp"
+				android:text="@string/Alarm"
+				android:textSize="20sp" />
+	        <RadioButton
+	            android:id="@+id/a1"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_margin="2dp"
+	            android:text="@string/Alarm1" />
+	
+	        <RadioButton
+	            android:id="@+id/a2"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_margin="2dp"
+	            android:text="@string/Alarm2" />
+	
+	        <RadioButton
+	            android:id="@+id/a3"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_margin="2dp"
+	            android:text="@string/Alarm3"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

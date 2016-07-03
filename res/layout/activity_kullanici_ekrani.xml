@@ -1,0 +1,180 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical"
+	android:background="@drawable/background" 
+	android:weightSum="12">
+
+	<LinearLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="5dp"
+	    android:layout_weight="4"
+	    android:gravity="center"
+	    android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/NavigasyonEkraninaGecis"
+			android:layout_width="220dp"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="20dp"
+			android:layout_marginRight="20dp"
+            android:text="@string/ButtonNavigasyon"
+            android:onClick="onNavigasyon"
+            android:drawableLeft="@drawable/navigation" />
+
+        <Button
+            android:id="@+id/YoneticiEkraninaGecis"
+			android:layout_width="220dp"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="20dp"
+			android:layout_marginRight="20dp"
+            android:text="@string/ButtonYonetici"
+            android:onClick="onYonetici"
+            android:drawableLeft="@drawable/social_person" />
+
+        <TextView
+            android:id="@+id/anlikmod"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="20dp"
+			android:layout_marginRight="30dp"
+            android:gravity="center"
+            android:text="@string/ButtonMod"
+            android:textSize="18sp" />
+
+        <Spinner
+            android:id="@+id/ModSecimiSpinner"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:layout_margin="2dp"
+            android:entries="@array/modsecimiarrayi"
+            android:popupBackground="#DADADA" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_weight="3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" 
+        android:gravity="center">
+		<TextView
+			android:layout_width="fill_parent"
+			android:layout_height="2dp"
+			android:background="#DADADA"/>
+	</LinearLayout>
+    <LinearLayout
+        android:layout_weight="2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" 
+        android:gravity="center">
+		<LinearLayout
+	        android:layout_weight="1.5"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal"
+	        android:gravity="center"> 
+        	<ImageView
+	            android:layout_width="250dp"
+	            android:layout_height="250dp"
+	            android:src="@drawable/tekerleklisandalye" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1.5" 
+            >
+
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_gravity="center"
+                android:src="@drawable/hoparlor" />
+
+            <RadioButton
+                android:id="@+id/SesSecimi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/RadioButtonSes"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_weight="3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" 
+        android:gravity="center">
+		<TextView
+			android:layout_width="fill_parent"
+			android:layout_height="2dp"
+			android:background="#DADADA"/>
+	 </LinearLayout>
+	<LinearLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="10dp"
+	    android:layout_weight="3"
+	    android:orientation="horizontal" 
+	    android:gravity="top">
+
+        <Button
+            android:id="@+id/LogAlma"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:text="@string/ButtonLog"
+            android:drawableLeft="@drawable/downloadsmall" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:entries="@array/tazeleme_hizi_arayi"
+            android:text="@string/SensorTazeleme"
+            android:textSize="18sp" />
+
+        <Spinner
+            android:id="@+id/SensorTazelemeHizi"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:layout_margin="2dp"
+            android:entries="@array/tazeleme_hizi_arayi"
+            android:popupBackground="#DADADA" />
+
+		<TextView
+		    android:layout_marginTop="6dp"
+		    android:layout_marginLeft="150dp"
+			android:id="@+id/textView7"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:paddingLeft="4dp"
+			android:paddingRight="4dp"
+			android:text="@string/Alarm"
+			android:textSize="20sp" />
+        <RadioButton
+            android:id="@+id/a1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:text="@string/Alarm1" />
+
+        <RadioButton
+            android:id="@+id/a2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:text="@string/Alarm2" />
+
+        <RadioButton
+            android:id="@+id/a3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:text="@string/Alarm3" />
+    </LinearLayout>
+</LinearLayout>
